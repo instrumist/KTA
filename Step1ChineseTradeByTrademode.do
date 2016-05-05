@@ -1,6 +1,6 @@
 clear all
 set more off
-cd F:\QuickData
+cd C:\QuickData
 
 * Step 1(Calculating China's ex/import w/ World, Japan, and Korea by trade mode)
 
@@ -27,3 +27,4 @@ preserve
 keep if ctry=="World"
 drop ctry
 order trademode v1* r1* v2* r2*
+export excel China_Trademode.xlsx, replace

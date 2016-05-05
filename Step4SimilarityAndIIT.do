@@ -1,12 +1,14 @@
 clear all
 set more off
-cd F:\QuickData
+cd C:\QuickData
 
-global lev=1 // KEY parameter
+*Setting parameters (do lev 0 and lev 1, then run siblings of step 4)
+global lev=1
+global flo=2
 
 * Functions
 program preprocessing
-	keep if flow==2
+	keep if flow==$flo
 	gen type=7
 	replace type=12 if year>=2012
 	capture merge m:1 hs type using hs_sitc4, assert(match) keep(match)
@@ -44,6 +46,7 @@ use CleanedComtrade_exp, clear
 drop if year==2015
 	preprocessing
 keep if ctry=="KOR" | ctry=="CHN" | ctry=="JPN"
+save temp_CJK, replace
 append using temp_CHN
 encode ctry, gen(ctryn)
 
@@ -93,7 +96,7 @@ collapse (sum) esi* , by(year isic)
 reshape long esi, i(year isic) j(id) string
 
 match
-save esi, replace
+save EsiF${flo}S${lev}, replace
 
 * FK
 use temp_w, clear
@@ -116,4 +119,4 @@ local z=`x'+1
 }
 reshape long FKsim, i(year isic) j(id) string
 match
-save FKsim, replace
+save FKsimF${flo}S${lev}, replace

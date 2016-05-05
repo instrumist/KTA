@@ -1,6 +1,6 @@
 clear all
 set more off
-cd F:\QuickData
+cd C:\QuickData
 
 local level=1 // KEY parameter
 

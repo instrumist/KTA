@@ -1,6 +1,6 @@
 clear all
 set more off
-cd F:\QuickData
+cd C:\QuickData
 
 global lev=1 // KEY parameter
 
