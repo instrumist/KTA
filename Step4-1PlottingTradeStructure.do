@@ -2,7 +2,7 @@ clear all
 set more off
 cd C:\QuickData
 
-global flo=1
+global flo=2
 
 *Step4-1 Plotting trade structure of CJK
 *Warning! Step 4 should be executed beforehand(tradeflow & depth of SITC is also dependent)
