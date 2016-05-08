@@ -29,7 +29,7 @@ program matching
 	keep if productcode=="7"
 	drop prod* _merge type
 	*ren rep ctry
-	*egen vt=total(v), by(year ctry prod)
+	*egen vt=total(v), by(year ctry prod) 
 	*collapse (sum) v, by(year ctry prod)
 end
 
