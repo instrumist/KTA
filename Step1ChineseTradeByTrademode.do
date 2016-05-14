@@ -27,4 +27,4 @@ preserve
 keep if ctry=="World"
 drop ctry
 order trademode v1* r1* v2* r2*
-export excel China_Trademode.xlsx, replace
+export excel China_Trademode.xlsx, firstrow(variables) replace
